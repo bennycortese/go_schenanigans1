@@ -8,18 +8,21 @@ func fibonacci() func() int {
 	first_num := 0
 	second_num := 1
 	x := 0
-	return func(x, first_num, second_num int) int
-	{
+	return func() int {
 		if x == 0 {
+			x += 1
 			return first_num
 		}
 		if x == 1 {
+			x += 1
 			return second_num
 		}
-		if x % 2 == 0 {
+		if x%2 == 0 {
+			x += 1
 			first_num = first_num + second_num
 			return first_num
 		}
+		x += 1
 		second_num = second_num + first_num
 		return second_num
 	}
